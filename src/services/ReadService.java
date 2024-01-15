@@ -6,31 +6,36 @@ public final class ReadService {
 
     private final static Scanner sc = new Scanner(System.in);
 
-    public static <T extends Enum<T>> T readOption(Class<T> enumClass) {
+    private ReadService() {
+    }
 
-        int total = enumClass.getEnumConstants().length;
-        PrintService.printOptions(enumClass);
+    public static <T extends Enum<T>> T readEnum(Class<T> enumClass) {
+
+        T[] enums = enumClass.getEnumConstants();
+        int total = enums.length;
+
+        PrintService.printOptions(enums);
 
         System.out.print("Your choice: ");
         int choice = sc.nextInt();
 
         while (!validChoice(choice, total)) {
             System.out.println("Invalid!");
-            PrintService.printOptions(enumClass);
+            PrintService.printOptions(enums);
             System.out.print("Your choice: ");
             choice = sc.nextInt();
         }
 
-        return enumClass.getEnumConstants()[choice - 1];
+        return enums[choice - 1];
     }
 
     public static String readString(String title) {
-        System.out.println(title);
+        System.out.print(title + ":");
         return sc.next();
     }
 
     public static int readInt(String title) {
-        System.out.println(title);
+        System.out.print(title + ":");
         return sc.nextInt();
     }
 

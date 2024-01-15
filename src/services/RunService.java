@@ -12,16 +12,18 @@ public final class RunService {
 
         ClientController clientController = new ClientController();
 
-        Option option = null;
+
+        outer:
         do {
 
             try {
-                option = ReadService.readOption(Option.class);
+                Option option = ReadService.readEnum(Option.class);
 
                 switch (option) {
+
                     case CREATE -> {
-                        Client a = clientController.create();
-                        clientController.save(a);
+                        Client client = clientController.create();
+                        clientController.save(client);
                     }
 
                     case PRINT -> {
@@ -29,6 +31,13 @@ public final class RunService {
                         EntityDTO entityDTO = clientController.generateReport(client);
                         System.out.println("\n" + entityDTO);
                     }
+
+                    case EXIT -> {
+                        break outer;
+                    }
+
+                    //Adding defensive programming
+                    default -> throw new IllegalArgumentException("This option is deprecated!");
 
                 }
 
@@ -39,7 +48,7 @@ public final class RunService {
                 System.out.println("Error! " + e.getMessage());
             }
 
-        } while (option != Option.EXIT);
+        } while (true);
     }
 
 }
