@@ -20,23 +20,4 @@ public class ClientReportDTO extends EntityDTO {
                 + name + " - " + age + " - " + position + " in list ";
     }
 
-        public ClientReportDTOBuilder age(int age) {
-            this.age = age;
-            return this;
-        }
-
-        public ClientReportDTOBuilder index(int index) {
-            this.index = index;
-            return this;
-        }
-
-        public ClientReportDTOBuilder creationDate(LocalTime creationDate) {
-            this.creationDate = creationDate;
-            return this;
-        }
-
-        public ClientReportDTO build() {
-            return new ClientReportDTO(creationDate, name, age, index);
-        }
-    }
 }
