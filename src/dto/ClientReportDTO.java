@@ -1,6 +1,8 @@
 package dto;
 
-import java.time.LocalTime;
+import domain.Client;
+
+import java.time.format.DateTimeFormatter;
 
 public class ClientReportDTO extends EntityDTO {
     private final String name;
