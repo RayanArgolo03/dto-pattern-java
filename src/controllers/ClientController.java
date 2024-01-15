@@ -1,7 +1,7 @@
 package controllers;
 
 import domain.Client;
-import dto.ClientReportDTO;
+import dto.EntityDTO;
 import exceptions.ClientException;
 import services.ClientService;
 
@@ -28,8 +28,11 @@ public class ClientController {
     }
 
     public Client find() {
-        return service.findClient()
-                .orElseThrow(() -> new ClientException("Not found!"));
+        return service.findClient().orElseThrow(() -> new ClientException("Not found!"));
+    }
+
+    public EntityDTO generateReport(Client client) {
+        return service.createClientDTO(client);
     }
 
 }
