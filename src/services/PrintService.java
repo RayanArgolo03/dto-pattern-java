@@ -2,10 +2,8 @@ package services;
 
 public class PrintService {
 
-    public static <T extends Enum<T>> void printOptions(Class<T> enumClass) {
-        T[] enumConstants = enumClass.getEnumConstants();
-        int i = 1;
-        for (T enumm : enumConstants) System.out.println((i++) + " - " + enumm);
+    public static <T extends Enum<T>> void printOptions(T[] enums) {
+        for (T e : enums) System.out.println((e.ordinal() + 1) + " - " + e);
     }
 
 
