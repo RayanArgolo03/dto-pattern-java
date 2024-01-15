@@ -34,10 +34,11 @@ public class ClientRepository implements IClientRepository {
     }
 
     public Optional<Client> findByName(String name) {
-        return findBy(client -> client.getName().equalsIgnoreCase(name));
+        //Adding defensive programming
+        return findBy(client -> name.equalsIgnoreCase(client.getName()));
     }
 
     public int findIndex(Client client) {
-        return clients.stream().toList().indexOf(client) + 1;
+        return clients.stream().toList().indexOf(client);
     }
 }
