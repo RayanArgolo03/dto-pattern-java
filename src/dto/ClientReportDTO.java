@@ -16,26 +16,9 @@ public class ClientReportDTO extends EntityDTO {
 
     @Override
     public String toString() {
-        return name + " - " + age + " - " + index + " in list";
+        return "[CREATED IN " + getCreationInstance().format(DateTimeFormatter.ofPattern("HH:mm")) + "]"
+                + name + " - " + age + " - " + position + " in list ";
     }
-
-    public static final class ClientReportDTOBuilder {
-        private String name;
-        private int age;
-        private int index;
-        private LocalTime creationDate;
-
-        private ClientReportDTOBuilder() {
-        }
-
-        public static ClientReportDTOBuilder builder() {
-            return new ClientReportDTOBuilder();
-        }
-
-        public ClientReportDTOBuilder name(String name) {
-            this.name = name;
-            return this;
-        }
 
         public ClientReportDTOBuilder age(int age) {
             this.age = age;
