@@ -5,7 +5,7 @@ import java.time.LocalTime;
 public class ClientReportDTO extends EntityDTO {
     private final String name;
     private final int age;
-    private final int index;
+    private final int position;
 
     public ClientReportDTO(Client client, int index) {
         super(client.getCreationInstant());
