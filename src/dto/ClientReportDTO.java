@@ -7,11 +7,11 @@ public class ClientReportDTO extends EntityDTO {
     private final int age;
     private final int index;
 
-    public ClientReportDTO(LocalTime creationDate, String name, int age, int index) {
-        super(creationDate);
-        this.name = name;
-        this.age = age;
-        this.index = index;
+    public ClientReportDTO(Client client, int index) {
+        super(client.getCreationInstant());
+        this.name = client.getName();
+        this.age = client.getAge();
+        this.position = index + 1;
     }
 
     @Override
