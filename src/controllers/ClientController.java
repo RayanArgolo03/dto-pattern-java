@@ -16,11 +16,13 @@ public class ClientController {
         return service.createClient();
     }
 
-    public ClientReportDTO generateReport(Client client) {
-        return service.createClientDTO(client);
-    }
-
+    //Adding defensive programming
     public void save(Client client) {
+
+        if (client == null) {
+            throw new ClientException("Client cannot be null!");
+        }
+
         boolean sucess = service.saveClient(client);
         if (!sucess) throw new ClientException("Client already exists!");
     }
