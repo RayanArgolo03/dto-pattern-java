@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 public class Client {
+
     private final String name;
     private final int age;
     private final String city;
