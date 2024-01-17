@@ -6,8 +6,6 @@ Este é um projeto simples de gerenciamento de clientes que utiliza diversas tec
 
 - **Java**: Linguagem de programação principal do projeto.
 - **Lombok**: Biblioteca para simplificar a criação de classes Java, eliminando a necessidade de escrever métodos getters, setters, constructors, etc.
-- **Enum**: Utilizado para representar opções disponíveis no menu.
-- **InputMismatchException**: Tratamento de exceções para garantir entrada de dados correta.
 - **Builder Pattern**: Padrão de design utilizado para a construção de objetos complexos de forma mais legível e modular.
 - **DTO (Data Transfer Object)**: Padrão utilizado para transferir dados entre camadas do aplicativo, encapsulando múltiplos objetos em uma classe.
 - **Repository Pattern**: Abstração utilizada para a comunicação com o banco de dados, mantendo a lógica de persistência separada do restante do código.
