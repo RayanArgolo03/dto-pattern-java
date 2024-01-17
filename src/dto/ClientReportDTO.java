@@ -21,5 +21,4 @@ public class ClientReportDTO extends EntityDTO {
         return "[CREATED IN " + getCreationInstance().format(DateTimeFormatter.ofPattern("HH:mm")) + "]"
                 + name + " - " + age + " - " + position + " in list ";
     }
-
 }
