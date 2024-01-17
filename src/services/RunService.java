@@ -12,7 +12,6 @@ public final class RunService {
 
         ClientController clientController = new ClientController();
 
-
         outer:
         do {
 
@@ -23,6 +22,7 @@ public final class RunService {
 
                     case CREATE -> {
                         Client client = clientController.create();
+                        System.out.println(client);
                         clientController.save(client);
                     }
 

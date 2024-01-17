@@ -29,7 +29,7 @@ public class ClientService {
         String city = ReadService.readString("Enter the client city");
         if (!validString(city)) throw new ClientException("Invalid city!");
 
-        return Client.ClientBuilder.builder()
+        return Client.builder()
                 .name(name)
                 .age(age)
                 .city(city)
