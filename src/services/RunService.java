@@ -4,9 +4,11 @@ import controllers.ClientController;
 import domain.Client;
 import dto.EntityDTO;
 import enums.Option;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.InputMismatchException;
 
+@Log4j2
 public final class RunService {
     public static void runApplication() {
 
@@ -22,7 +24,6 @@ public final class RunService {
 
                     case CREATE -> {
                         Client client = clientController.create();
-                        System.out.println(client);
                         clientController.save(client);
                     }
 
@@ -41,11 +42,12 @@ public final class RunService {
 
                 }
 
+                //Adding Logging
             } catch (InputMismatchException e) {
-                System.out.println("Invalid entry!");
+                log.info("Entry with invalid data type: " + e.getMessage());
                 break;
             } catch (RuntimeException e) {
-                System.out.println("Error! " + e.getMessage());
+                log.error(e.getMessage());
             }
 
         } while (true);
