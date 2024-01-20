@@ -23,15 +23,11 @@ public class ClientService {
         String name = ReadService.readString("Enter the client name");
         if (!validString(name)) throw new ClientException("Invalid name!");
 
-        int age = ReadService.readInt("Enter the client age");
-        if (!validAge(age)) throw new ClientException("Invalid age!");
-
         String city = ReadService.readString("Enter the client city");
         if (!validString(city)) throw new ClientException("Invalid city!");
 
         return Client.builder()
                 .name(name)
-                .age(age)
                 .city(city)
                 .creationInstant(LocalTime.now())
                 .build();
@@ -73,9 +69,6 @@ public class ClientService {
         return str.length() > 2;
     }
 
-    private static boolean validAge(int age) {
-        return age > 18 && age < 91;
-    }
 
 
 }
