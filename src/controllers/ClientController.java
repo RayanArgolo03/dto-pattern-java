@@ -3,8 +3,10 @@ package controllers;
 import domain.Client;
 import dto.EntityDTO;
 import exceptions.ClientException;
+import lombok.extern.log4j.Log4j2;
 import services.ClientService;
 
+@Log4j2
 public class ClientController {
     private final ClientService service;
 
@@ -28,7 +30,7 @@ public class ClientController {
     }
 
     public Client find() {
-        return service.findClient().orElseThrow(() -> new ClientException("Not found!"));
+        return service.findClient().orElseThrow(() ->  new ClientException("Not found!"));
     }
 
     public EntityDTO generateReport(Client client) {
